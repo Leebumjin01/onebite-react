@@ -6,7 +6,7 @@ function main(value) {
 }
 
 function sub() {
-  // console.log("I'm sub function");
+  console.log("I'm sub function");
 }
 
 main(sub);
@@ -39,10 +39,10 @@ function repeat(count, callback) {
 }
 
 repeat(5, function (idx) {
-  console.log(idx * 2);
+  // console.log(idx * 2);
 });
 
 // 익명 함수로
 repeat(5, (idx) => {
-  console.log(idx * 2);
+  // console.log(idx * 2);
 });
