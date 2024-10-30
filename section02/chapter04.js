@@ -37,3 +37,5 @@ function funcB(one, ...rest) {
 }
 
 funcB(...arr1);
+
+// 파일 하나만 커밋 연습
