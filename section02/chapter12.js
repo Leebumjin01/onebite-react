@@ -35,6 +35,7 @@ function freezeFood(food, callback) {
   }, 1500);
 }
 
+// 콜백 지옥
 orderFood((food) => {
   console.log(food);
 
