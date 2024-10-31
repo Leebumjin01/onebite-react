@@ -1,3 +1,5 @@
+// props로 데이터 전달하기
+
 /* 
 const Button = (props) => {
   console.log(props);
