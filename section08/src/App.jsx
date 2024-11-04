@@ -39,11 +39,20 @@ function App() {
     setTodos([newTodo, ...todos]);
   };
 
+  const onUpdate = (targetId) => {
+    setTodos(
+      todos.map((todo) =>
+        // true면 isDone 을 반전(토글)
+        todo.id === targetId ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
+  };
+
   return (
     <div className="App">
       <Header></Header>
       <Editor onCreate={onCreate}></Editor>
-      <List todos={todos}></List>
+      <List todos={todos} onUpdate={onUpdate}></List>
     </div>
   );
 }

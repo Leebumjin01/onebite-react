@@ -21,6 +21,7 @@ const Editor = ({ onCreate }) => {
       return;
     }
     onCreate(content);
+    // 추가를 했을 때 입력 창을 비워줌
     setContent("");
   };
 
