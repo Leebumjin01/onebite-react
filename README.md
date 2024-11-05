@@ -2,9 +2,9 @@
 
 - 목차
 
-section01: JavaScript 기본
-1.1 안녕 자바스크립트
-1.2 VsCode 설치
+-- section01: JavaScript 기본
+-- 1.1 안녕 자바스크립트
+-- 1.2 VsCode 설치
 1.3 자바스크립트 실습 환경 설정
 1.4 변수와 상수
 1.5 자료형
