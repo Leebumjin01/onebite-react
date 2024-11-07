@@ -19,7 +19,7 @@
 }
 
 .DiaryItem .img_section > img {
-  width:50%
+  width: 50%;
 }
 
 .DiaryItem .img_section_1 {
@@ -43,21 +43,19 @@
 }
 
 .DiaryItem .info_section {
-  flex:1;
-  cursor:pointer;
-
+  flex: 1;
+  cursor: pointer;
 }
 
 .DiaryItem .info_section .created_date {
   font-weight: bold;
-  font-size: 25px
-
+  font-size: 25px;
 }
 
 .DiaryItem .info_section .content {
-  font-size: 18px
+  font-size: 18px;
 }
 
 .DiaryItem .button_section {
-  min-width:70px
+  min-width: 70px;
 }
