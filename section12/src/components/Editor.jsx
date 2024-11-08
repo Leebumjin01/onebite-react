@@ -25,9 +25,6 @@ const Editor = ({ initData, onSubmit }) => {
   }, [initData]);
 
   const onChangeInput = (e) => {
-    // console.log(e.target.name); // 어떤 요소에 입력이 들어온건지
-    // console.log(e.target.value); // 입력된 값이 무엇인지?
-
     let name = e.target.name;
     let value = e.target.value;
 
@@ -41,7 +38,7 @@ const Editor = ({ initData, onSubmit }) => {
     });
   };
 
-  const onClickSubmitButton = () => {
+  const onSubmitButtonClick = () => {
     onSubmit(input);
   };
 
@@ -54,7 +51,7 @@ const Editor = ({ initData, onSubmit }) => {
           onChange={onChangeInput}
           value={getStringedDate(input.createdDate)}
           type="date"
-        ></input>
+        />
       </section>
       <section className="emotion_section">
         <h4>오늘의 감정</h4>
@@ -63,7 +60,10 @@ const Editor = ({ initData, onSubmit }) => {
             <EmotionItem
               onClick={() =>
                 onChangeInput({
-                  target: { name: "emotionId", value: item.emotionId },
+                  target: {
+                    name: "emotionId",
+                    value: item.emotionId,
+                  },
                 })
               }
               key={item.emotionId}
@@ -79,16 +79,16 @@ const Editor = ({ initData, onSubmit }) => {
           name="content"
           value={input.content}
           onChange={onChangeInput}
-          placeholder="오늘은 어때요?"
-        ></textarea>
+          placeholder="오늘은 어땠나요?"
+        />
       </section>
       <section className="button_section">
-        <Button onClick={() => nav(-1)} text={"취소하기"}></Button>
+        <Button onClick={() => nav(-1)} text={"취소하기"} />
         <Button
-          onClick={onClickSubmitButton}
+          onClick={onSubmitButtonClick}
           text={"작성완료"}
           type={"POSITIVE"}
-        ></Button>
+        />
       </section>
     </div>
   );

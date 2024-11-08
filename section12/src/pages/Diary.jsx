@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom"; // url parameter를 가져오는 hook
+import { useParams, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import Viewer from "../components/Viewer";
@@ -7,15 +7,12 @@ import { getStringedDate } from "../util/get-stringed-date";
 
 const Diary = () => {
   const params = useParams();
-  // console.log(params);
-
   const nav = useNavigate();
 
   const curDiaryItem = useDiary(params.id);
-  console.log(curDiaryItem);
 
   if (!curDiaryItem) {
-    return <div>일기 로딩중...</div>;
+    return <div>데이터 로딩중...!</div>;
   }
 
   const { createdDate, emotionId, content } = curDiaryItem;
@@ -24,16 +21,13 @@ const Diary = () => {
   return (
     <div>
       <Header
-        title={`${title}`}
-        leftChild={<Button onClick={() => nav(-1)} text={"< Back"}></Button>}
+        title={`${title} 기록`}
+        leftChild={<Button onClick={() => nav(-1)} text={"< 뒤로 가기"} />}
         rightChild={
-          <Button
-            onClick={() => nav(`/edit/${params.id}`)}
-            text={"수정"}
-          ></Button>
+          <Button onClick={() => nav(`/edit/${params.id}`)} text={"수정하기"} />
         }
-      ></Header>
-      <Viewer emotionId={emotionId} content={content}></Viewer>
+      />
+      <Viewer emotionId={emotionId} content={content} />
     </div>
   );
 };

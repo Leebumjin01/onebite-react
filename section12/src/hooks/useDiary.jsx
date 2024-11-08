@@ -16,6 +16,7 @@ const useDiary = (id) => {
       window.alert("존재하지 않는 일기입니다.");
       nav("/", { replace: true });
     }
+
     setCurDiaryItem(currentDiaryItem);
   }, [id, data]);
 

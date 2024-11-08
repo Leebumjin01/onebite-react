@@ -7,24 +7,21 @@ import { DiaryDispatchContext, DiaryStateContext } from "../App";
 import useDiary from "../hooks/useDiary";
 
 const Edit = () => {
-  // useParams: URL의 파라미터를 제공
   const params = useParams();
   const nav = useNavigate();
   const { onDelete, onUpdate } = useContext(DiaryDispatchContext);
-
   const curDiaryItem = useDiary(params.id);
 
   const onClickDelete = () => {
-    if (window.confirm("삭제하시겠습니까?")) {
+    if (window.confirm("일기를 정말 삭제할까요? 다시 복구되지 않아요!")) {
+      // 일기 삭제 로직
       onDelete(params.id);
-      // 브라우저의 내장기능을 사용하는 함수, 확인, 취소가 있는 팝업창을 띄워줌
-      // t, f 반환
       nav("/", { replace: true });
     }
   };
 
   const onSubmit = (input) => {
-    if (window.confirm("수정하시겠습니까?")) {
+    if (window.confirm("일기를 정말 수정할까요?")) {
       onUpdate(
         params.id,
         input.createdDate.getTime(),
@@ -38,12 +35,12 @@ const Edit = () => {
   return (
     <div>
       <Header
-        title={"수정하기"}
-        leftChild={<Button onClick={() => nav(-1)} text={"< Back"} />}
+        title={"일기 수정하기"}
+        leftChild={<Button onClick={() => nav(-1)} text={"< 뒤로 가기"} />}
         rightChild={
-          <Button onClick={onClickDelete} text={"삭제"} type={"NEGATIVE"} />
+          <Button onClick={onClickDelete} text={"삭제하기"} type={"NEGATIVE"} />
         }
-      ></Header>
+      />
       <Editor initData={curDiaryItem} onSubmit={onSubmit} />
     </div>
   );

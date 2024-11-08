@@ -1,11 +1,9 @@
-import { useState, useContext } from "react";
-import { DiaryStateContext } from "../App";
-
 import Header from "../components/Header";
 import Button from "../components/Button";
 import DiaryList from "../components/DiaryList";
+import { useState, useContext } from "react";
+import { DiaryStateContext } from "../App";
 
-// 현재 날짜와 일기 데이터를 기반으로 이번달에 해당하는 일기 데이터만 추출
 const getMonthlyData = (pivotDate, data) => {
   const beginTime = new Date(
     pivotDate.getFullYear(),
@@ -39,17 +37,19 @@ const Home = () => {
   const onIncreaseMonth = () => {
     setPivotDate(new Date(pivotDate.getFullYear(), pivotDate.getMonth() + 1));
   };
+
   const onDecreaseMonth = () => {
     setPivotDate(new Date(pivotDate.getFullYear(), pivotDate.getMonth() - 1));
   };
+
   return (
     <div>
       <Header
         title={`${pivotDate.getFullYear()}년 ${pivotDate.getMonth() + 1}월`}
-        leftChild={<Button text={"<"} onClick={onDecreaseMonth}></Button>}
-        rightChild={<Button text={">"} onClick={onIncreaseMonth}></Button>}
-      ></Header>
-      <DiaryList data={monthlyData}></DiaryList>
+        leftChild={<Button onClick={onDecreaseMonth} text={"<"} />}
+        rightChild={<Button onClick={onIncreaseMonth} text={">"} />}
+      />
+      <DiaryList data={monthlyData} />
     </div>
   );
 };

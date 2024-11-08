@@ -13,14 +13,14 @@ const New = () => {
     onCreate(input.createdDate.getTime(), input.emotionId, input.content);
     nav("/", { replace: true });
   };
+
   return (
     <div>
       <Header
         title={"새 일기 쓰기"}
-        // navigate 의 인수에 -1을 전달하면 뒤로가기
-        leftChild={<Button onClick={() => nav(-1)} text={"< BACK"}></Button>}
+        leftChild={<Button onClick={() => nav(-1)} text={"< 뒤로 가기"} />}
       />
-      <Editor onSubmit={onSubmit}></Editor>
+      <Editor onSubmit={onSubmit} />
     </div>
   );
 };
